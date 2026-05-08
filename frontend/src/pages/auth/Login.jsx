@@ -1,8 +1,8 @@
 import { Lock, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/authServices";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -21,8 +21,8 @@ const Login = () => {
     loginUser(data).then((response) => {
       if (response.token) {
         sessionStorage.setItem("user_token", response.token);
-
         sessionStorage.setItem("user_name", response.user.name);
+        toast.success("Login successful!!");
         navigate("/dashboard");
       }
     });
@@ -30,7 +30,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
-      <Toaster position="top-center" reverseOrder={false} />
       <div className="w-full max-w-md bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded shadow-2xl">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white tracking-tight">

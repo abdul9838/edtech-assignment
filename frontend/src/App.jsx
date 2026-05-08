@@ -5,6 +5,7 @@ import Loader from "./components/Loader";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import DashboardLayout from "./components/DashboardLayout";
+import { Toaster } from "react-hot-toast";
 
 // Lazy Loaded Components
 const Login = lazy(() => import("./pages/auth/Login"));
@@ -16,41 +17,45 @@ const Tasks = lazy(() => import("./pages/private/Tasks"));
 function App() {
   return (
     // Wrap with Suspense to handle loading states
-    <Suspense fallback={<Loader fullScreen message="Setting things up..." />}>
-      <Routes>
-        {/* Public Routes */}
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          }
-        />
+    <>
+      <Toaster position="top-center" />
 
-        {/* Protected Routes */}
-        <Route
-          element={
-            <ProtectedRoute>
-              <DashboardLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/tasks" element={<Tasks />} />
-        </Route>
+      <Suspense fallback={<Loader fullScreen message="Setting things up..." />}>
+        <Routes>
+          {/* Public Routes */}
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
 
-        <Route path="/" element={<Navigate to="/login" replace />} />
-      </Routes>
-    </Suspense>
+          {/* Protected Routes */}
+          <Route
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/tasks" element={<Tasks />} />
+          </Route>
+
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 

@@ -1,7 +1,6 @@
-import React from "react";
+import { Lock, Mail, User } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { User, Mail, Lock, UserPlus } from "lucide-react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/authServices";
 
@@ -34,8 +33,6 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
-      <Toaster position="top-center" />
-
       <div className="w-full max-w-md bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded shadow-2xl">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white tracking-tight">
