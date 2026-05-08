@@ -11,12 +11,12 @@ import Sidebar from "./Sidebar";
 
 const DashboardLayout = () => {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 flex">
+    <div className="h-screen bg-slate-950 text-slate-200 flex">
       {/* Sidebar */}
       <Sidebar />
       {/* Main Content */}
       <main className="flex-1 flex flex-col">
-        <div className="p-4 overflow-y-auto">
+        <div className="p-6 min-h-screen overflow-y-auto">
           <Outlet />
         </div>
       </main>

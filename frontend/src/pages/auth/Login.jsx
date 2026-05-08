@@ -22,6 +22,8 @@ const Login = () => {
     loginUser(data).then((response) => {
       if (response.token) {
         sessionStorage.setItem("user_token", response.token);
+
+        sessionStorage.setItem("user_name", response.user.name);
         navigate("/dashboard");
       }
     });
