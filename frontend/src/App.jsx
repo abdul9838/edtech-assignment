@@ -1,31 +1,35 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+
 import Login from "./pages/auth/Login";
-import Dashboard from "./pages/private/Dashboard";
 import Register from "./pages/auth/Register";
-import { useEffect } from "react";
+
+import Dashboard from "./pages/private/Dashboard";
+import Tasks from "./pages/private/Tasks";
+
 import DashboardLayout from "./components/DashboardLayout";
 
 function App() {
-  useEffect(() => {
-    if (window.location.pathname === "/") window.location.pathname = "/login";
-  }, []);
   return (
     <Routes>
+      {/* Public Routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      {/* Wrap protected components */}
+      {/* Protected Routes */}
       <Route
-        path="/dashboard"
         element={
           <ProtectedRoute>
-            <DashboardLayout>
-              <Dashboard />
-            </DashboardLayout>
+            <DashboardLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/tasks" element={<Tasks />} />
+      </Route>
+
+      {/* Redirect root */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }
