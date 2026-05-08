@@ -15,10 +15,10 @@ const Register = () => {
   } = useForm({
     mode: "onBlur",
     defaultValues: {
-      email: "user@example.com",
-      password: "password123",
-      confirmPassword: "password123",
-      name: "John Doe",
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
   });
 

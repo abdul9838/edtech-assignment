@@ -12,8 +12,8 @@ const Login = () => {
   } = useForm({
     mode: "onBlur",
     defaultValues: {
-      email: "user@example.com",
-      password: "password123",
+      email: "",
+      password: "",
     },
   });
   const navigate = useNavigate();
