@@ -22,7 +22,7 @@ const AddOrEditTask = ({
           <input
             {...register("title", { required: "Title is required" })}
             placeholder="What needs to be done?"
-            className={`w-full p-3 bg-slate-800 border ${errors.title ? "border-red-500" : "border-slate-700"} rounded-xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all`}
+            className={`w-full p-3 bg-slate-800 border ${errors.title ? "border-red-500" : "border-slate-700"} rounded-sm text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all`}
           />
           {errors.title && (
             <p className="text-red-500 text-xs mt-1 ml-1">
@@ -40,7 +40,7 @@ const AddOrEditTask = ({
             })}
             placeholder="Add more details..."
             rows="4"
-            className={`w-full p-3 bg-slate-800 border ${errors.description ? "border-red-500" : "border-slate-700"} rounded-xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none`}
+            className={`w-full p-3 bg-slate-800 border ${errors.description ? "border-red-500" : "border-slate-700"} rounded-sm text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none`}
           />
           {errors.description && (
             <p className="text-red-500 text-xs mt-1 ml-1">
@@ -67,13 +67,13 @@ const AddOrEditTask = ({
           <button
             type="button"
             onClick={closeModal}
-            className="flex-1 bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-xl font-semibold transition-all"
+            className="flex-1 bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-sm font-semibold transition-all"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-xl font-semibold shadow-lg shadow-indigo-500/20 transition-all"
+            className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-sm font-semibold shadow-lg shadow-indigo-500/20 transition-all"
           >
             {editingId ? "Update Task" : "Save Task"}
           </button>

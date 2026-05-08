@@ -20,7 +20,7 @@ const DeleteModal = ({ id, handleDelete }) => {
       <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl w-[95vw] max-w-sm shadow-2xl">
         {/* Icon */}
         <div className="flex justify-center mb-5">
-          <div className="p-4 bg-red-500/10 rounded-2xl">
+          <div className="p-4 bg-red-500/10 rounded">
             <Trash2 size={28} className="text-red-400" />
           </div>
         </div>
@@ -39,14 +39,14 @@ const DeleteModal = ({ id, handleDelete }) => {
           <button
             type="button"
             onClick={closeModal}
-            className="flex-1 bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-xl font-semibold transition-all"
+            className="flex-1 bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-sm font-semibold transition-all"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={onConfirm}
-            className="flex-1 bg-red-600 hover:bg-red-500 text-white p-3 rounded-xl font-semibold shadow-lg shadow-red-500/20 transition-all"
+            className="flex-1 bg-red-600 hover:bg-red-500 text-white p-3 rounded-sm font-semibold shadow-lg shadow-red-500/20 transition-all"
           >
             Delete
           </button>

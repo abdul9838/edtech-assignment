@@ -150,7 +150,7 @@ const Tasks = () => {
   };
 
   return (
-    <div className="bg-slate-950 text-slate-200 overflow-x-auto">
+    <div className="md:p-6 p-3   bg-slate-950 text-slate-200 overflow-x-auto">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -165,7 +165,7 @@ const Tasks = () => {
             reset();
             document.getElementById("task-modal").showPopover();
           }}
-          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-5 py-2.5 rounded-xl transition-all"
+          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-5 py-2.5 rounded-sm transition-all"
         >
           <Plus size={20} /> Add Task
         </button>
@@ -184,7 +184,7 @@ const Tasks = () => {
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             placeholder="Search tasks..."
-            className="w-full pl-9 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-sm"
+            className="w-full pl-9 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-sm text-white placeholder-slate-500 outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-sm"
           />
         </div>
 
@@ -192,7 +192,7 @@ const Tasks = () => {
         <select
           value={statusFilter}
           onChange={(e) => setParam("status", e.target.value)}
-          className="px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-sm cursor-pointer"
+          className="px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-sm text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-sm cursor-pointer"
         >
           {STATUS_OPTIONS.map((s) => (
             <option key={s} value={s}>
@@ -205,7 +205,7 @@ const Tasks = () => {
         <select
           value={limit}
           onChange={(e) => setParam("limit", e.target.value)}
-          className="px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-sm cursor-pointer"
+          className="px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-sm text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-sm cursor-pointer"
         >
           {LIMIT_OPTIONS.map((l) => (
             <option key={l} value={l}>
@@ -218,7 +218,7 @@ const Tasks = () => {
       <DeleteModal id={deletingId} handleDelete={handleDelete} />
 
       {/* Table */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-slate-900 border border-slate-800 rounded overflow-hidden shadow-xl">
         <table className="w-full text-left overflow-x-auto">
           <thead>
             <tr className="text-slate-400 text-sm bg-slate-800/50 uppercase tracking-wider">

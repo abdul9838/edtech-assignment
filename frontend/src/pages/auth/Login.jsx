@@ -1,7 +1,6 @@
-import React from "react";
+import { Lock, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Mail, Lock, LogIn } from "lucide-react";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/authServices";
 
@@ -32,13 +31,10 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="w-full max-w-md bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-2xl shadow-2xl">
+      <div className="w-full max-w-md bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded shadow-2xl">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-500/10 rounded-full mb-4">
-            <LogIn className="w-8 h-8 text-indigo-400" />
-          </div>
           <h2 className="text-3xl font-bold text-white tracking-tight">
-            Welcome Back
+            Login
           </h2>
           <p className="text-slate-400 mt-2">Please enter your details</p>
         </div>
@@ -58,7 +54,7 @@ const Login = () => {
                     message: "Invalid email address",
                   },
                 })}
-                className={`w-full bg-slate-800/50 border ${errors.email ? "border-red-500" : "border-slate-700"} text-white rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all`}
+                className={`w-full bg-slate-800/50 border ${errors.email ? "border-red-500" : "border-slate-700"} text-white rounded-sm py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all`}
                 placeholder="name@company.com"
               />
             </div>
@@ -82,7 +78,7 @@ const Login = () => {
                   required: "Password is required",
                   minLength: { value: 6, message: "Minimum 6 characters" },
                 })}
-                className={`w-full bg-slate-800/50 border ${errors.password ? "border-red-500" : "border-slate-700"} text-white rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all`}
+                className={`w-full bg-slate-800/50 border ${errors.password ? "border-red-500" : "border-slate-700"} text-white rounded-sm py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all`}
                 placeholder="••••••••"
               />
             </div>
@@ -95,7 +91,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-xl shadow-lg shadow-indigo-500/20 transition-all active:scale-[0.98]"
+            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-sm shadow-lg shadow-indigo-500/20 transition-all active:scale-[0.98]"
           >
             Sign In
           </button>

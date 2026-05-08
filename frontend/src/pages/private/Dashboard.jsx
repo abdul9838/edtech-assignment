@@ -53,7 +53,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <>
+    <div className="md:p-6 p-3  ">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold text-white">Dashboard</h1>
@@ -62,25 +62,25 @@ const Dashboard = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cards.map((card, index) => {
           const Icon = card.icon;
 
           return (
             <div
               key={index}
-              className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl"
+              className="bg-slate-900 border border-slate-800 rounded p-6 shadow-xl"
             >
               {loading ? (
                 <div className="animate-pulse space-y-4">
-                  <div className="h-10 w-10 rounded-xl bg-slate-700" />
+                  <div className="h-10 w-10 rounded-sm bg-slate-700" />
                   <div className="h-4 w-24 rounded bg-slate-700" />
                   <div className="h-8 w-16 rounded bg-slate-700" />
                 </div>
               ) : (
                 <>
                   <div
-                    className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center mb-4`}
+                    className={`w-12 h-12 rounded bg-gradient-to-br ${card.color} flex items-center justify-center mb-4`}
                   >
                     <Icon className="text-white" size={24} />
                   </div>
@@ -96,7 +96,7 @@ const Dashboard = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

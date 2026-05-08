@@ -25,7 +25,7 @@ const Sidebar = ({ asideItem }) => {
             key={item.name}
             // add active class
             className={({ isActive }) =>
-              `w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-indigo-600/10 hover:text-indigo-400 rounded-xl transition-colors ${
+              `w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-indigo-600/10 hover:text-indigo-400 rounded-sm transition-colors ${
                 isActive ? "bg-indigo-600/10 text-indigo-400" : ""
               }`
             }
@@ -38,7 +38,7 @@ const Sidebar = ({ asideItem }) => {
       <div className="p-4 border-t border-slate-800">
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-red-500/10 hover:text-red-400 rounded-xl transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-red-500/10 hover:text-red-400 rounded-sm transition-colors"
         >
           <LogOut size={20} /> Logout
         </button>

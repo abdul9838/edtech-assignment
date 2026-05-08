@@ -23,8 +23,8 @@ const DashboardLayout = () => {
       {/* Sidebar */}
       <Sidebar asideItem={asideItem} />
       {/* Main Content */}
-      <main className="flex-1  flex flex-col">
-        <div className="md:p-6 p-3  flex-1 overflow-y-auto">
+      <main className="flex-1 flex flex-col">
+        <div className="flex-1 overflow-y-auto">
           <Outlet />
         </div>
         {/* footer  with aside item like bottom tab  */}
@@ -34,7 +34,7 @@ const DashboardLayout = () => {
               to={item.path}
               key={item.name}
               className={({ isActive }) =>
-                `w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-indigo-600/10 hover:text-indigo-400 rounded-xl transition-colors `
+                `w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-indigo-600/10 hover:text-indigo-400 rounded-sm transition-colors `
               }
             >
               {item.icon} {item.name}
