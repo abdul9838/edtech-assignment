@@ -4,7 +4,6 @@ const errorMiddleware = (err, req, res, next) => {
   let statusCode = err.statusCode || 500;
   let message = err.message || "Internal Server Error";
 
-  // Handle Mongoose validation errors
   if (err.name === "ValidationError") {
     statusCode = 400;
     message = Object.values(err.errors)
@@ -12,7 +11,6 @@ const errorMiddleware = (err, req, res, next) => {
       .join(", ");
   }
 
-  // Handle duplicate key error (MongoDB)
   if (err.code === 11000) {
     statusCode = 400;
     message = `Duplicate field value entered: ${Object.keys(err.keyValue).join(
@@ -20,13 +18,11 @@ const errorMiddleware = (err, req, res, next) => {
     )}`;
   }
 
-  // Handle invalid JWT
   if (err.name === "JsonWebTokenError") {
     statusCode = 401;
     message = "Invalid token";
   }
 
-  // Handle expired JWT
   if (err.name === "TokenExpiredError") {
     statusCode = 401;
     message = "Token expired, please login again";

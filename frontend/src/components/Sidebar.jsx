@@ -23,7 +23,6 @@ const Sidebar = ({ asideItem }) => {
           <NavLink
             to={item.path}
             key={item.name}
-            // add active class
             className={({ isActive }) =>
               `w-full flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-indigo-600/10 hover:text-indigo-400 rounded-sm transition-colors ${
                 isActive ? "bg-indigo-600/10 text-indigo-400" : ""

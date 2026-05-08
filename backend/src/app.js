@@ -9,33 +9,23 @@ import { authMiddleware } from "./middleware/auth.middleware.js";
 
 const app = express();
 
-/**
- * Middlewares
- */
+// Middleware
 app.use(cors());
-
 app.use(express.json());
 
-/**
- * Routes
- */
+// Routes
 app.use("/api/tasks", authMiddleware, taskRoutes);
-
 app.use("/api/auth", userRoutes);
 app.use("/api/dashboard", authMiddleware, dashboardRoutes);
 
-/**
- * Health Route
- */
+// Health Check
 app.get("/", (req, res) => {
   res.json({
     message: "API Running",
   });
 });
 
-/**
- * Error Middleware
- */
+// Error Middleware
 app.use(errorMiddleware);
 
 export default app;

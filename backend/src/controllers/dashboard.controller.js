@@ -1,19 +1,15 @@
 import Task from "../models/task.model.js";
 
-/**
- * Get dashboard stats
- */
+// Get dashboard data
 export const getDashboardData = async (req, res, next) => {
   try {
     const userId = req.user._id;
 
-    // Base filter (exclude deleted tasks)
     const baseFilter = {
       user: userId,
       isDeleted: false,
     };
 
-    // Run all counts in parallel
     const [totalTasks, completedTasks, pendingTasks] = await Promise.all([
       Task.countDocuments(baseFilter),
 

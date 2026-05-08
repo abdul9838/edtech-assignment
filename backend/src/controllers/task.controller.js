@@ -1,14 +1,12 @@
 import Task from "../models/task.model.js";
 
-/**
- * Get all tasks
- */
+// Get tasks
 export const getTasks = async (req, res, next) => {
   try {
     const { page = 1, limit = 10, search = "", status = "" } = req.query;
 
     const pageNum = Math.max(1, parseInt(page));
-    const limitNum = Math.min(100, Math.max(1, parseInt(limit))); // cap at 100
+    const limitNum = Math.min(100, Math.max(1, parseInt(limit)));
     const skip = (pageNum - 1) * limitNum;
 
     // Build filter
@@ -45,9 +43,7 @@ export const getTasks = async (req, res, next) => {
   }
 };
 
-/**
- * Get single task
- */
+// Get task by id
 export const getTaskById = async (req, res, next) => {
   try {
     const task = await Task.findOne({
@@ -68,9 +64,7 @@ export const getTaskById = async (req, res, next) => {
   }
 };
 
-/**
- * Create task
- */
+// Create task
 export const createTask = async (req, res, next) => {
   try {
     const { title, description, status } = req.body;
@@ -88,9 +82,7 @@ export const createTask = async (req, res, next) => {
   }
 };
 
-/**
- * Update task
- */
+// Update task
 export const updateTask = async (req, res, next) => {
   try {
     const { title, description, status } = req.body;
@@ -121,9 +113,7 @@ export const updateTask = async (req, res, next) => {
   }
 };
 
-/**
- * Delete task
- */
+// Delete task
 export const deleteTask = async (req, res, next) => {
   try {
     const task = await Task.findOneAndUpdate(

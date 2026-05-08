@@ -80,7 +80,7 @@ const Dashboard = () => {
               ) : (
                 <>
                   <div
-                    className={`w-12 h-12 rounded bg-gradient-to-br ${card.color} flex items-center justify-center mb-4`}
+                    className={`w-12 h-12 rounded bg-linear-to-br ${card.color} flex items-center justify-center mb-4`}
                   >
                     <Icon className="text-white" size={24} />
                   </div>
