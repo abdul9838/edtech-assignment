@@ -2,22 +2,13 @@ import { LayoutDashboard, ListTodo, LogOut } from "lucide-react";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ asideItem }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     sessionStorage.removeItem("user_token");
     navigate("/login");
   };
-
-  const asideItem = [
-    {
-      name: "Dashboard",
-      icon: <LayoutDashboard size={20} />,
-      path: "/dashboard",
-    },
-    { name: "Tasks", icon: <ListTodo size={20} />, path: "/tasks" },
-  ];
 
   return (
     <aside className="w-64 border-r border-slate-800 bg-slate-900/50 hidden md:flex flex-col">

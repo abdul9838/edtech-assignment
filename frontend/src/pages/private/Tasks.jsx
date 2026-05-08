@@ -150,7 +150,7 @@ const Tasks = () => {
   };
 
   return (
-    <div className="bg-slate-950 text-slate-200">
+    <div className="bg-slate-950 text-slate-200 overflow-x-auto">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -219,7 +219,7 @@ const Tasks = () => {
 
       {/* Table */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-        <table className="w-full text-left">
+        <table className="w-full text-left overflow-x-auto">
           <thead>
             <tr className="text-slate-400 text-sm bg-slate-800/50 uppercase tracking-wider">
               <th className="px-6 py-4 font-semibold">Task Details</th>
