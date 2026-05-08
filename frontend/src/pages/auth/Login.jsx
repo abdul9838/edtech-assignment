@@ -2,19 +2,29 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Mail, Lock, LogIn } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-
+  } = useForm({
+    mode: "onBlur",
+    defaultValues: {
+      email: "user@example.com",
+      password: "password123",
+    },
+  });
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     // Simulated authentication
     if (data.email === "user@example.com" && data.password === "password123") {
+      sessionStorage.setItem("token", "token123");
+      navigate("/dashboard");
+      // Authentication successful
       toast.success("Successfully logged in!");
+      navigate("/dashboard");
     } else {
       toast.error("Invalid email or password");
     }
