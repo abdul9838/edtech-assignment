@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Mail, Lock, LogIn } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/authServices";
 
 const Login = () => {
   const {
@@ -18,16 +19,12 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    // Simulated authentication
-    if (data.email === "user@example.com" && data.password === "password123") {
-      sessionStorage.setItem("token", "token123");
-      navigate("/dashboard");
-      // Authentication successful
-      toast.success("Successfully logged in!");
-      navigate("/dashboard");
-    } else {
-      toast.error("Invalid email or password");
-    }
+    loginUser(data).then((response) => {
+      if (response.token) {
+        sessionStorage.setItem("user_token", response.token);
+        navigate("/dashboard");
+      }
+    });
   };
 
   return (

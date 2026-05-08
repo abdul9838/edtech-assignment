@@ -4,11 +4,11 @@ const ProtectedRoute = ({ children }) => {
   const location = useLocation();
 
   // Check if user exists in sessionStorage
-  const isAuthenticated = sessionStorage.getItem("token") !== null;
+  const isAuthenticated = sessionStorage.getItem("user_token") !== null;
 
   if (!isAuthenticated) {
     // Redirect to login, but save the current location they were trying to go to
-    return <Navigate to="/" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return children;

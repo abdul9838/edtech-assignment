@@ -1,27 +1,9 @@
 // services/taskService.js
 
 import { BASE_URL } from "../config/api";
+import handleResponse from "./handleResponse";
 
 const API_URL = `${BASE_URL}/tasks`;
-
-/**
- * Common API response handler
- */
-const handleResponse = async (response) => {
-  let data = null;
-
-  try {
-    data = await response.json();
-  } catch {
-    data = null;
-  }
-
-  if (!response.ok) {
-    throw new Error(data?.message || data?.error || "Something went wrong");
-  }
-
-  return data;
-};
 
 /**
  * Get all tasks

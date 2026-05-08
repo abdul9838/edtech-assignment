@@ -2,21 +2,34 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { User, Mail, Lock, UserPlus } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { registerUser } from "../../services/authServices";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onBlur",
+    defaultValues: {
+      email: "user@example.com",
+      password: "password123",
+      confirmPassword: "password123",
+      name: "John Doe",
+    },
+  });
 
   const password = watch("password");
-
   const onSubmit = (data) => {
-    console.log("Account Data:", data);
-    toast.success("Account created successfully!");
+    registerUser(data).then((response) => {
+      if (response.success) {
+        toast.success(response.message);
+        navigate("/login");
+      }
+    });
   };
 
   return (
@@ -43,7 +56,7 @@ const Register = () => {
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <input
-                {...register("fullName", { required: "Name is required" })}
+                {...register("name", { required: "Name is required" })}
                 className={`w-full bg-slate-800/50 border ${errors.fullName ? "border-red-500" : "border-slate-700"} text-white rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all`}
                 placeholder="John Doe"
               />
