@@ -4,6 +4,7 @@ import Login from "./pages/auth/Login";
 import Dashboard from "./pages/private/Dashboard";
 import Register from "./pages/auth/Register";
 import { useEffect } from "react";
+import DashboardLayout from "./components/DashboardLayout";
 
 function App() {
   useEffect(() => {
@@ -19,7 +20,9 @@ function App() {
         path="/dashboard"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
           </ProtectedRoute>
         }
       />
