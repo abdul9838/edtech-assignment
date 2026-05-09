@@ -41,7 +41,6 @@ npm -v
 
 ```bash
 git clone https://github.com/abdul9838/edtech-assignment.git
-cd <project-folder>
 ```
 
 ---
@@ -156,25 +155,13 @@ npm install
 
 ## 4. Run the frontend
 
-### For Create React App
-
-```bash
-npm start
-```
-
-### For Vite
+### Run this command on terminal
 
 ```bash
 npm run dev
 ```
 
 Frontend will run at:
-
-```bash
-http://localhost:3000
-```
-
-or (Vite)
 
 ```bash
 http://localhost:5173
@@ -235,19 +222,7 @@ Ensure:
 
 - MongoDB is installed
 - MongoDB service is running
-- `MONGODB_URI` is correct
-
----
-
-## Port already in use
-
-Change the backend port in `.env`:
-
-```env
-PORT=5001
-```
-
-Then update the frontend API URL accordingly.
+- `MONGODB_URI` is correct in env
 
 ---
 
@@ -267,6 +242,10 @@ npm install
 ## Frontend
 
 - React.js
+- Tailwind CSS
+- React Hook Form
+- React Hot Toast
+- React Router DOM
 
 ## Backend
 
